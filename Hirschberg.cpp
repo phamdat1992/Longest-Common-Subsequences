@@ -1,6 +1,8 @@
-/*
-  This is implemented by Nhat Nam Ha
-*/
+/**
+ * @author: Nhat Nam Ha
+ * @organization: 
+ * @email: 
+ */
 
 #include <iostream>
 #include <cstring>

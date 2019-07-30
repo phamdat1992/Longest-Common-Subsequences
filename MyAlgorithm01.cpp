@@ -8,32 +8,11 @@
  * @email: hienjeony@gmail.com
  */
 
-#include <bits/stdc++.h>
+#include <MyAlgorithm01.h>
  
 using namespace std;
  
-map<int, set<int> > matchList;
-set<int> track;
-vector<int> a, b;
- 
-void input()
-{
-    int n, m;
-    cin>>n>>m;
- 
-    a.resize(n);
-    b.resize(m);
-    for (int i = 0; i < a.size(); ++i)
-    {
-        cin>>a[i];
-    }
-    for (int i = 0; i < b.size(); ++i)
-    {
-        cin>>b[i];
-    }
-}
- 
-void buildMatchList()
+void buildMatchList(const vector &b)
 {
     for (int i = 0; i < b.size(); ++i)
     {
@@ -41,7 +20,7 @@ void buildMatchList()
     }
 }
  
-void process()
+void process(const vector &a, const vector &b)
 {
     set<int>::iterator itMatch;
     set<int>::iterator itTrack;
@@ -70,11 +49,10 @@ void process()
     }
 }
  
-int main()
+int run(const vector &a, const vector &b)
 {
-    input();
-    buildMatchList();
-    process();
+    buildMatchList(b);
+    process(a, b);
  
-    cout<<track.size();
+    return track.size();
 }
