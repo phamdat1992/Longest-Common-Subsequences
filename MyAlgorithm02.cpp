@@ -36,7 +36,7 @@ void buildThreshold(const vector<int> &a, const vector<int> &b)
 
     for (int i = a.size() - 1; i >= 0; --i)
     {
-        if (flag[a[i]] != matchList[a[i]].rend())
+        if (!matchList[a[i]].empty())
         {
             while (t.top().second < (*flag[a[i]]))
             {
