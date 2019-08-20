@@ -12,7 +12,7 @@
  
 using namespace std;
  
-void buildMatchList(const vector &b)
+void buildMatchList(const vector<int> &b)
 {
     for (int i = 0; i < b.size(); ++i)
     {
@@ -20,7 +20,7 @@ void buildMatchList(const vector &b)
     }
 }
  
-void process(const vector &a, const vector &b)
+void process(const vector<int> &a, const vector<int> &b)
 {
     set<int>::iterator itMatch;
     set<int>::iterator itTrack;
@@ -49,7 +49,7 @@ void process(const vector &a, const vector &b)
     }
 }
  
-int run(const vector &a, const vector &b)
+int run(const vector<int> &a, const vector<int> &b)
 {
     buildMatchList(b);
     process(a, b);

@@ -2,17 +2,17 @@
  * @author: Pham Huu Thanh Dat
  * @organization: ZALORA
  * @email: dat.pham@zalora.com
- *
- * @author: Duong Thanh Hien
- * @organization: Lam Son High School for the Gifted
- * @email: hienjeony@gmail.com
  */
 
-#include <MyAlgorithm01.h>
- 
+// #include <MyAlgorithm02.h>
+#include <bits/stdc++.h>
 using namespace std;
- 
-void buildMatchList(const vector &b)
+
+map<int, set<int> > matchList;
+set<int> track;
+vector<int> threshold;
+
+void buildMatchList(const vector<int> &b)
 {
     for (int i = 0; i < b.size(); ++i)
     {
@@ -20,31 +20,38 @@ void buildMatchList(const vector &b)
     }
 }
 
-void buildReservedFlag(const vector &a, const vector &b)
+void buildThreshold(const vector<int> &a, const vector<int> &b)
 {
-    set<int>::iterator itMatch;
-    stack<pair<int, int>> t;
-    int valueMatch;
+    map<int, set<int>::reverse_iterator> flag;
+    stack<pair<int, int> > t;
 
-    idx.resize(a.size(), 0);
-    for (int i = 0; i < a.size)
+    int oo = numeric_limits<int>::max();
+    t.push(make_pair(oo, oo));
+    threshold.resize(a.size(), 0);
+
+    for (int i = 0; i < b.size(); ++i) 
     {
-        while (!t.empty() && t.top()->second < (*matchList[a[i]].rbegin())) {
-            matchList[a[t.top()->first]].push_back(t.top()->second);
-            t.pop();
-        }
+        flag[b[i]] = matchList[b[i]].rbegin();
+    }
 
-        itMatch = matchList[a[i]].rbegin();
-        valueMatch = *itMatch;
-        if (!t.empty() && t.top()->second > valueMatch) {
-            idx[i] = valueMatch;
-            matchList[a[i]].erase(itMatch);
-            stack.push(new pair(i, valueMatch));
+    for (int i = a.size() - 1; i >= 0; --i)
+    {
+        if (flag[a[i]] != matchList[a[i]].rend())
+        {
+            while (t.top().second < (*flag[a[i]]))
+            {
+                --flag[t.top().first];
+                t.pop();
+            }
+
+            threshold[i] = (*flag[a[i]]);
+            t.push(make_pair(a[i], threshold[i]));
+            ++flag[a[i]];
         }
     }
 }
 
-void process(const vector &a, const vector &b)
+void process(const vector<int> &a, const vector<int> &b)
 {
     set<int>::iterator itMatch;
     set<int>::iterator itTrack;
@@ -52,13 +59,15 @@ void process(const vector &a, const vector &b)
  
     for (int i = 0; i < a.size(); ++i)
     {
-        if (idx[i] != 0) {
-            matchList[a[i]].insert(idx[i]);
-        }
         itMatch = matchList[a[i]].begin();
         while (itMatch != matchList[a[i]].end())
         {
             idMatch = *itMatch;
+            if (idMatch > threshold[i]) 
+            {
+                break;
+            }
+
             matchList[a[i]].erase(itMatch);
             track.insert(idMatch);
  
@@ -76,10 +85,32 @@ void process(const vector &a, const vector &b)
     }
 }
  
-int run(const vector &a, const vector &b)
+int run(const vector<int> &a, const vector<int> &b)
 {
     buildMatchList(b);
+    buildThreshold(a, b);
     process(a, b);
  
     return track.size();
+}
+
+int main()
+{
+    vector<int> a, b;
+    int n, m;
+    cin>>n>>m;
+    a.resize(n);
+    b.resize(m);
+
+    for (int i = 0; i < n; ++i)
+    {
+        cin>>a[i];
+    }
+
+    for (int i = 0; i < m; ++i)
+    {
+        cin>>b[i];
+    }
+
+    cout<<run(a, b);
 }
