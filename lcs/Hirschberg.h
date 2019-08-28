@@ -5,10 +5,12 @@
  */
 
 #pragma once
-#include <LCS.h>
+#include "LCS.h"
 
 class Hirschberg : LCS
 {
-    public:
-        int run(const vector &, const vector &);
-}
+protected:
+	int process(const vector<int>&, const vector<int>&);
+public:
+	int run(const vector<int>&, const vector<int>&);
+};

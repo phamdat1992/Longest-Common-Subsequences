@@ -5,10 +5,10 @@
  */
 
 #pragma once
-#include <LCS.h>
+#include "LCS.h"
 
 class HuntSzymanski : LCS
 {
-    public:
-        int run(const vector &, const vector &);
-}
+public:
+	int run(const vector<int>&, const vector<int>&);
+};

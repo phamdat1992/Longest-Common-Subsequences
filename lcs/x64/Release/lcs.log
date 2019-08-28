@@ -1,0 +1,17 @@
+﻿  Benchmark.cpp
+  Hirschberg.cpp
+C:\Projects\Longest-Common-Subsequences\lcs\Benchmark.cpp(7,10): error C1083:  Cannot open include file: 'Benchmark.h': No such file or directory
+C:\Projects\Longest-Common-Subsequences\lcs\Hirschberg.cpp(17,17): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Projects\Longest-Common-Subsequences\lcs\Hirschberg.cpp(17,32): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Projects\Longest-Common-Subsequences\lcs\Hirschberg.cpp(31,22): error C3861:  'max': identifier not found
+C:\Projects\Longest-Common-Subsequences\lcs\Hirschberg.cpp(32,15): error C3861:  'max': identifier not found
+  HuntSzymanski.cpp
+C:\Projects\Longest-Common-Subsequences\lcs\Hirschberg.cpp(33,15): error C3861:  'max': identifier not found
+C:\Projects\Longest-Common-Subsequences\lcs\HuntSzymanski.cpp(19,17): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Projects\Longest-Common-Subsequences\lcs\HuntSzymanski.cpp(19,31): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+  MyAlgorithm01.cpp
+C:\Projects\Longest-Common-Subsequences\lcs\HuntSzymanski.cpp(33,35): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+  MyAlgorithm02.cpp
+C:\Projects\Longest-Common-Subsequences\lcs\MyAlgorithm01.cpp(11,10): error C1083:  Cannot open include file: 'MyAlgorithm01.h': No such file or directory
+C:\Projects\Longest-Common-Subsequences\lcs\MyAlgorithm02.cpp(8,10): error C1083:  Cannot open include file: 'bits/stdc++.h': No such file or directory

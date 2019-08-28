@@ -8,19 +8,17 @@
  * @email: hienjeony@gmail.com
  */
 
-#include <MyAlgorithm01.h>
+#include "MyAlgorithm01.h"
  
-using namespace std;
- 
-void buildMatchList(const vector<int> &b)
+void MyAlgorithm01::buildMatchList(const vector<int> &b)
 {
     for (int i = 0; i < b.size(); ++i)
     {
-        matchList[b[i]].insert(i);
+        this->matchList[b[i]].insert(i);
     }
 }
  
-void process(const vector<int> &a, const vector<int> &b)
+void MyAlgorithm01::process(const vector<int> &a, const vector<int> &b)
 {
     set<int>::iterator itMatch;
     set<int>::iterator itTrack;
@@ -28,31 +26,31 @@ void process(const vector<int> &a, const vector<int> &b)
  
     for (int i = 0; i < a.size(); ++i)
     {
-        itMatch = matchList[a[i]].begin();
-        while (itMatch != matchList[a[i]].end())
+        itMatch = this->matchList[a[i]].begin();
+        while (itMatch != this->matchList[a[i]].end())
         {
             idMatch = *itMatch;
-            matchList[a[i]].erase(itMatch);
-            track.insert(idMatch);
+            this->matchList[a[i]].erase(itMatch);
+            this->track.insert(idMatch);
  
-            itTrack = track.upper_bound(idMatch);
-            if (itTrack == track.end())
+            itTrack = this->track.upper_bound(idMatch);
+            if (itTrack == this->track.end())
             {
                 break;
             }
  
             idTrack = *itTrack;
-            track.erase(itTrack);
-            matchList[b[idTrack]].insert(idTrack);
-            itMatch = matchList[a[i]].upper_bound(idTrack);
+            this->track.erase(itTrack);
+            this->matchList[b[idTrack]].insert(idTrack);
+            itMatch = this->matchList[a[i]].upper_bound(idTrack);
         }
     }
 }
  
-int run(const vector<int> &a, const vector<int> &b)
+int MyAlgorithm01::run(const vector<int> &a, const vector<int> &b)
 {
-    buildMatchList(b);
-    process(a, b);
+    this->buildMatchList(b);
+    this->process(a, b);
  
-    return track.size();
+    return this->track.size();
 }

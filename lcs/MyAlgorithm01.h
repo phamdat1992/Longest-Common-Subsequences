@@ -5,16 +5,16 @@
  */
 
 #pragma once
-#include <LCS.h>
+#include "LCS.h"
 
 class MyAlgorithm01 : LCS
 {
-    protected:
-        map<int, set<int> > matchList;
-        set<int> track;
+protected:
+	map<int, set<int> > matchList;
+	set<int> track;
 
-        void buildMatchList(const vector &);
-        void process(const vector &, const vector &);
-    public:
-        int run(const vector &, const vector &);
-}
+	void buildMatchList(const vector<int>&);
+	void process(const vector<int>&, const vector<int>&);
+public:
+	int run(const vector<int>&, const vector<int>&);
+};

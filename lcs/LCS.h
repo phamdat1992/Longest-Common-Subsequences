@@ -5,10 +5,18 @@
  */
 
 #pragma once
-#include <bits/stdc++.h>
- 
+#include <iostream>
+#include <vector>
+#include <map>
+#include <set>
+#include <stack>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+
 class LCS
 {
     public:
-    virtual int run(const vector &, const vector &) = 0;
+    virtual int run(const vector<int> &, const vector<int> &) = 0;
 };
