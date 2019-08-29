@@ -17,6 +17,7 @@ int Benchmarker::getRandomBase(const int base)
 
 vector<int> Benchmarker::generateVector(const int len, const int base)
 {
+	srand(time(NULL));
 	vector<int> data(len);
 	for (int i = 0; i < data.size(); ++i)
 	{
