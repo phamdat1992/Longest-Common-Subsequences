@@ -41,10 +41,21 @@ void HuntSzymanski::process(const vector<int>& a, const vector<int>& b)
 	}
 }
 
+void HuntSzymanski::reset()
+{
+	this->matchList.clear();
+	this->track.clear();
+}
+
 int HuntSzymanski::run(const vector<int>& a, const vector<int>& b)
 {
 	this->buildMatchList(b);
     this->process(a, b);
 
 	return this->track.size();
+}
+
+string HuntSzymanski::getName()
+{
+	return "HuntSzymanski";
 }

@@ -40,7 +40,7 @@ void MyAlgorithm02::buildThreshold(const vector<int> &a, const vector<int> &b)
 
             this->threshold[i] = (*flag[a[i]]);
             t.push(make_pair(a[i], this->threshold[i]));
-            ++flag[a[i]];
+			++flag[a[i]];
         }
     }
 }
@@ -51,7 +51,7 @@ void MyAlgorithm02::process(const vector<int> &a, const vector<int> &b)
     set<int>::iterator itTrack;
     int idMatch, idTrack;
  
-    for (int i; i < a.size(); ++i)
+    for (int i = 0; i < a.size(); ++i)
     {
         itMatch = this->matchList[a[i]].begin();
         while (itMatch != this->matchList[a[i]].end())
@@ -79,6 +79,13 @@ void MyAlgorithm02::process(const vector<int> &a, const vector<int> &b)
     }
 }
  
+void MyAlgorithm02::reset()
+{
+	this->matchList.clear();
+	this->threshold.clear();
+	this->track.clear();
+}
+
 int MyAlgorithm02::run(const vector<int> &a, const vector<int> &b)
 {
     this->buildMatchList(b);
@@ -86,4 +93,9 @@ int MyAlgorithm02::run(const vector<int> &a, const vector<int> &b)
     this->process(a, b);
  
     return this->track.size();
+}
+
+string MyAlgorithm02::getName()
+{
+	return "MyAlgorithm02";
 }

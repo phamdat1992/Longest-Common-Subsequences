@@ -7,10 +7,15 @@
 #pragma once
 #include "LCS.h"
 
-class Hirschberg : LCS
+class Hirschberg : public LCS
 {
 protected:
+	vector<vector<int> > matrix;
+	void init(int);
 	int process(const vector<int>&, const vector<int>&);
+
 public:
+	void reset();
 	int run(const vector<int>&, const vector<int>&);
+	string getName();
 };

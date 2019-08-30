@@ -47,10 +47,21 @@ void MyAlgorithm01::process(const vector<int> &a, const vector<int> &b)
     }
 }
  
+void MyAlgorithm01::reset()
+{
+	this->matchList.clear();
+	this->track.clear();
+}
+
 int MyAlgorithm01::run(const vector<int> &a, const vector<int> &b)
 {
     this->buildMatchList(b);
     this->process(a, b);
  
     return this->track.size();
+}
+
+string MyAlgorithm01::getName()
+{
+	return "MyAlgorithm01";
 }

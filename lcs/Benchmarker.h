@@ -9,6 +9,9 @@
 #include <cstdlib>
 #include <vector>
 #include <ctime>
+#include <string>
+#include <chrono>
+#include "LCS.h"
 
 using namespace std;
 
@@ -16,7 +19,9 @@ class Benchmarker
 {
 protected:
 	int getRandomBase(const int);
-	
-public:
 	vector<int> generateVector(const int, const int);
+
+public:
+	Benchmarker();
+	string start(int, int, int, vector<LCS*>);
 };

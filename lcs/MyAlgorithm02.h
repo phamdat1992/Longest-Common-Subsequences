@@ -7,7 +7,7 @@
 #pragma once
 #include "LCS.h"
 
-class MyAlgorithm02 : LCS
+class MyAlgorithm02 : public LCS
 {
 protected:
 	map<int, set<int> > matchList;
@@ -17,6 +17,9 @@ protected:
 	void buildMatchList(const vector<int>&);
 	void buildThreshold(const vector<int>&, const vector<int>&);
 	void process(const vector<int>&, const vector<int>&);
+
 public:
+	void reset();
 	int run(const vector<int>&, const vector<int>&);
+	string getName();
 };
