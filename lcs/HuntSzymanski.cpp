@@ -20,31 +20,23 @@ void HuntSzymanski::buildMatchList(const vector<int>& b)
 
 void HuntSzymanski::process(const vector<int>& a, const vector<int>& b)
 {
-	set<int>::iterator itMatch;
+	set<int>::reverse_iterator itMatch;
 	set<int>::iterator itTrack;
-	int idMatch, idTrack;
+	int idMatch;
 
-	for (int i = 0; i < a.size(); ++i)
+	for (int ai : a)
 	{
-		itMatch = this->matchList[a[i]].begin();
-		while (itMatch != this->matchList[a[i]].end())
+		for (itMatch = matchList[ai].rbegin(); itMatch != matchList[ai].rend(); ++itMatch)
 		{
-			idMatch = *itMatch;
-			int previousSize = this->track.size();
-			this->track.insert(idMatch);
-
-			if (this->track.size() != previousSize)
+			idMatch = (*itMatch);
+			if (this->track.insert(idMatch).second)
 			{
 				itTrack = this->track.upper_bound(idMatch);
-				if (itTrack == this->track.end())
+				if (itTrack != this->track.end())
 				{
-					break;
+					this->track.erase(itTrack);
 				}
-
-				idTrack = *itTrack;
-				this->track.erase(itTrack);
 			}
-			itMatch = this->matchList[a[i]].upper_bound(idTrack);
 		}
 	}
 }

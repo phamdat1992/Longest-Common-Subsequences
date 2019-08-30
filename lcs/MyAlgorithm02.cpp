@@ -51,7 +51,7 @@ void MyAlgorithm02::process(const vector<int> &a, const vector<int> &b)
     set<int>::iterator itTrack;
     int idMatch, idTrack;
  
-    for (int i = 0; i < a.size(); ++i)
+    for (int i; i < a.size(); ++i)
     {
         itMatch = this->matchList[a[i]].begin();
         while (itMatch != this->matchList[a[i]].end())

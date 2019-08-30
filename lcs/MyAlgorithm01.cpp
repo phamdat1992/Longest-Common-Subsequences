@@ -24,13 +24,13 @@ void MyAlgorithm01::process(const vector<int> &a, const vector<int> &b)
     set<int>::iterator itTrack;
     int idMatch, idTrack;
  
-    for (int i = 0; i < a.size(); ++i)
+    for (int ai : a)
     {
-        itMatch = this->matchList[a[i]].begin();
-        while (itMatch != this->matchList[a[i]].end())
+        itMatch = this->matchList[ai].begin();
+        while (itMatch != this->matchList[ai].end())
         {
             idMatch = *itMatch;
-            this->matchList[a[i]].erase(itMatch);
+            this->matchList[ai].erase(itMatch);
             this->track.insert(idMatch);
  
             itTrack = this->track.upper_bound(idMatch);
@@ -42,7 +42,7 @@ void MyAlgorithm01::process(const vector<int> &a, const vector<int> &b)
             idTrack = *itTrack;
             this->track.erase(itTrack);
             this->matchList[b[idTrack]].insert(idTrack);
-            itMatch = this->matchList[a[i]].upper_bound(idTrack);
+            itMatch = this->matchList[ai].upper_bound(idTrack);
         }
     }
 }
