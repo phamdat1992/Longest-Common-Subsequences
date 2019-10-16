@@ -3,7 +3,11 @@
  * @organization: ZALORA
  * @email: dat.pham@zalora.com
  */
-
+/**
+ * @author: Le Nho Thanh
+ * @organization: none
+ * @email: lenhothanh.nsl@gmail.com
+ */
 #include "MyAlgorithm02.h"
 
 void MyAlgorithm02::buildMatchList(const vector<int> &b)
