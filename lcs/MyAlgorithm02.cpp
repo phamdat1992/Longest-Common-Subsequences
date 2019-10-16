@@ -5,7 +5,7 @@
  */
 /**
  * @author: Le Nho Thanh
- * @organization: none
+ * @organization: University of Technology Sydney
  * @email: lenhothanh.nsl@gmail.com
  */
 #include "MyAlgorithm02.h"
