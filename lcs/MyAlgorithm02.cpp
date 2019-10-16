@@ -28,13 +28,13 @@ void MyAlgorithm02::buildThreshold(const vector<int> &a, const vector<int> &b)
     this->threshold.resize(a.size(), 0);
 
     
-    for (auto const& [key, val] : matchList)
+    for (auto const& [key, val] : this->matchList)
     {
-        if (!this->matchList[val].empty()){
-            flag[key] = this->matchList[key].rbegin();
+        if (!val.empty()){
+            flag[key] = val.rbegin();
         }
     }
-
+	
     for (int i = a.size() - 1; i >= 0; --i)
     {
         if (!this->matchList[a[i]].empty())
