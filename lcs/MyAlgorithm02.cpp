@@ -31,7 +31,7 @@ void MyAlgorithm02::buildThreshold(const vector<int> &a, const vector<int> &b)
     for (auto const& [key, val] : matchList)
     {
         if (!this->matchList[key].empty()){
-            flag[key] = this->matchList[key].rbegin();
+            *flag[key] = this->matchList[val].rbegin();
         }
     }
 
