@@ -27,11 +27,11 @@ void MyAlgorithm02::buildThreshold(const vector<int> &a, const vector<int> &b)
     t.push(make_pair(oo, oo));
     this->threshold.resize(a.size(), 0);
 
-    map<int, set<int>>::iterator iMap;
-    for (iMap = matchList.begin(); iMap != matchList.end(); iMap++) 
-    {
-        if (!this->matchList[i].empty()){
-            flag[i]] = this->matchList[i].rbegin();
+    
+    for (auto const& iMap : matchList)
+    	{
+        if (!this->matchList[iMap].empty()){
+            flag[iMap] = this->matchList[iMap].rbegin();
         }
     }
 
