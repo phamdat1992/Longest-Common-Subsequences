@@ -3,11 +3,13 @@
  * @organization: ZALORA
  * @email: dat.pham@zalora.com
  */
+
 /**
  * @author: Le Nho Thanh
  * @organization: University of Technology Sydney
  * @email: lenhothanh.nsl@gmail.com
  */
+
 #include "MyAlgorithm02.h"
 
 void MyAlgorithm02::buildMatchList(const vector<int> &b)
@@ -26,12 +28,14 @@ void MyAlgorithm02::buildThreshold(const vector<int> &a, const vector<int> &b)
     int oo = numeric_limits<int>::max();
     t.push(make_pair(oo, oo));
     this->threshold.resize(a.size(), 0);
-
-    for (int i = 0; i < b.size(); ++i) 
+    
+    for (auto const& [key, val] : this->matchList)
     {
-        flag[b[i]] = this->matchList[b[i]].rbegin();
+        if (!val.empty()){
+            flag[key] = val.rbegin();
+        }
     }
-
+	
     for (int i = a.size() - 1; i >= 0; --i)
     {
         if (!this->matchList[a[i]].empty())
