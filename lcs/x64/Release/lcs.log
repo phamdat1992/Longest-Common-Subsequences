@@ -1,8 +1,0 @@
-﻿  Benchmarker.cpp
-C:\Projects\Longest-Common-Subsequences\lcs\Benchmarker.cpp(15,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating code
-  2 of 734 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  lcs.vcxproj -> C:\Projects\Longest-Common-Subsequences\x64\Release\lcs.exe
